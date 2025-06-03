@@ -1,0 +1,19 @@
+✅ Interview Answer:
+"Object-Oriented Programming, or OOP, is a programming method that is based on the concept of objects and classes. It helps in designing code that is easier to understand, manage, and reuse.
+
+The main concepts of OOP are:
+
+Class:
+A class is a blueprint or template to create objects. It contains data members (variables) and member functions (methods). For example, a 'Student' class can have name, ID, and mobile as properties.
+
+Object:
+An object is an instance of a class. It represents a real-world entity and can use the properties and methods defined in the class.
+
+Inheritance:
+Inheritance allows one class to inherit the properties and methods of another class. It helps in code reusability. There are different types like single, multilevel, multiple, hierarchical, and hybrid inheritance.
+
+Encapsulation:
+Encapsulation is the process of wrapping data and methods into a single unit, i.e., the class. It also helps in data hiding, meaning private data can be accessed only through public methods like getters and setters.
+
+These OOP concepts help to make code more structured, reusable, and secure."
+
