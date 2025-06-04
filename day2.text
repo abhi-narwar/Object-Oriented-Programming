@@ -1,0 +1,52 @@
+✅ 1. Abstraction
+Interview Answer:
+Abstraction is a concept in OOP where we hide the complex implementation details and show only the necessary features of an object.
+It helps to reduce programming complexity by focusing only on the essential parts.
+
+Example:
+For example, when we use a mobile phone, we just press the call button. We don’t know the internal details of how the call is connected — this is abstraction.
+
+✅ 2. Data Binding
+Interview Answer:
+Data Binding is the process of connecting the user interface (UI) with the business logic (data) of an application.
+So, if the data changes in the backend (logic), the UI automatically updates to reflect that change.
+
+Example:
+In JavaFX or Android, if we bind a text field to a variable and change the variable’s value, the text field will automatically show the updated value.
+
+✅ 3. Polymorphism
+Interview Answer:
+Polymorphism means "many forms." It allows one function or object to behave differently in different situations.
+
+There are two types of polymorphism:
+
+
+🔸 Compile-time Polymorphism (Static Binding):
+This type is resolved during compilation.
+Example: Method overloading – when we have multiple methods with the same name but different parameters in the same class.
+class Example {
+    void show(int a) { ... }
+    void show(String b) { ... }
+}
+
+
+🔸 Runtime Polymorphism (Dynamic Binding):
+This type is resolved at runtime.
+Example: Method overriding – when a subclass provides a specific implementation of a method that is already defined in the parent class.
+
+
+
+
+class Animal {
+    void sound() { System.out.println("Animal sound"); }
+}
+class Dog extends Animal {
+    void sound() { System.out.println("Dog barks"); }
+}
+
+
+If we call sound() using the Animal reference pointing to a Dog object, the Dog’s version will run — this is runtime polymorphism.
+
+✅ Final Summary (if interviewer asks to explain all together):
+Abstraction hides complexity, data binding connects data with UI, and polymorphism allows one interface to work in different ways. These are key principles of object-oriented programming.
+
