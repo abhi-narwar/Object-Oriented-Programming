@@ -1,0 +1,82 @@
+✅ 1. Method Overloading in Python – Interview Answer:
+Answer:
+Python does not support traditional method overloading like Java or C++.
+However, we can achieve it using default arguments or *args (variable-length arguments).
+So, we can write one method that works for different numbers of arguments.
+
+Example:
+class Add:
+    def add(self, *args):
+        return sum(args)
+Here, the same method works with 2 or 3 or more arguments.
+
+✅ 2. Runtime Polymorphism in Python – Interview Answer:
+Answer:
+Runtime polymorphism is also called dynamic method dispatch.
+In Python, it is achieved through method overriding.
+If a child class has a method with the same name as in the parent class, the child’s method overrides the parent’s method.
+At runtime, the method of the actual object is called.
+
+Example:
+class Base:
+    def show(self):
+        print("Base class")
+
+class Derived(Base):
+    def show(self):
+        print("Derived class")
+
+obj = Derived()
+obj.show()  # Output: Derived class
+
+✅ 3. Constructor in Python – Interview Answer:
+Answer:
+A constructor is a special method used to initialize an object at the time of creation.
+In Python, the constructor is written as __init__(self).
+It is called automatically when an object is created.
+
+Example:
+class Student:
+    def __init__(self, name):
+        self.name = name
+This is a parameterized constructor because it takes arguments.
+
+
+
+✅ 4. Copy Constructor in Python – Interview Answer:
+Answer:
+Python does not have a built-in copy constructor like C++, but we can manually define one.
+We do this by passing one object’s data into a new object using a method.
+
+Example:
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def copy(self):
+        return Student(self.name)
+✅ 5. Destructor in Python – Interview Answer:
+Answer:
+A destructor is used to clean up resources when an object is no longer in use.
+In Python, the destructor method is __del__(self) and it is called automatically when the object is deleted.
+
+Example:
+class A:
+    def __del__(self):
+        print("Destructor called")
+✅ 6. self Keyword in Python – Interview Answer:
+Answer:
+In Python, self refers to the current instance of the class.
+It is used to access instance variables and methods.
+It is similar to the this keyword in Java or C++.
+
+Example:
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+✅ Final Tip for Interview:
+"In Python, many OOP concepts like constructor, destructor, and polymorphism work similarly to Java and C++, but the syntax and behavior are a bit different. Python is more flexible, for example, it allows method overloading using *args, and doesn't support strict access modifiers like private or protected."
+
+
