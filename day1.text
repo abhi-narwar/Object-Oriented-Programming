@@ -1,19 +1,52 @@
 ✅ Interview Answer:
-"Object-Oriented Programming, or OOP, is a programming method that is based on the concept of objects and classes. It helps in designing code that is easier to understand, manage, and reuse.
+"Object-Oriented Programming (OOP) in Python is a programming approach based on the concept of classes and objects.
+It helps to write clean, reusable, and modular code.
 
-The main concepts of OOP are:
+The main OOP concepts in Python are:
 
-Class:
-A class is a blueprint or template to create objects. It contains data members (variables) and member functions (methods). For example, a 'Student' class can have name, ID, and mobile as properties.
+🔹 Class:
+A class is a blueprint for creating objects.
+It defines properties (called variables) and behaviors (called methods).
 
-Object:
-An object is an instance of a class. It represents a real-world entity and can use the properties and methods defined in the class.
+Example:
+class Student:
+    def __init__(self, name, roll):
+        self.name = name
+        self.roll = roll
+🔹 Object:
+An object is an instance of a class.
+It represents a real-world entity and can access all methods and variables of the class.
 
-Inheritance:
-Inheritance allows one class to inherit the properties and methods of another class. It helps in code reusability. There are different types like single, multilevel, multiple, hierarchical, and hybrid inheritance.
+Example:
+s1 = Student("Abhishek", 101)
 
-Encapsulation:
-Encapsulation is the process of wrapping data and methods into a single unit, i.e., the class. It also helps in data hiding, meaning private data can be accessed only through public methods like getters and setters.
+🔹 Inheritance:
+Inheritance allows a class (child) to inherit methods and properties from another class (parent).
+It supports code reuse and reduces redundancy.
+Python supports single, multilevel, multiple, and hierarchical inheritance.
 
-These OOP concepts help to make code more structured, reusable, and secure."
+Example:
+class Parent:
+    def show(self):
+        print("This is parent")
+
+class Child(Parent):
+    def display(self):
+        print("This is child")
+        
+🔹 Encapsulation:
+Encapsulation means binding data and methods together in one unit (class).
+It also helps in data hiding, where private variables are accessed using getter/setter methods.
+
+Example:
+class Student:
+    def __init__(self):
+        self.__marks = 0  # private variable
+
+    def set_marks(self, m):
+        self.__marks = m
+
+    def get_marks(self):
+        return self.__marks
+
 
