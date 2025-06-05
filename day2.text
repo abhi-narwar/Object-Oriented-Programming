@@ -1,52 +1,90 @@
-✅ 1. Abstraction
-Interview Answer:
-Abstraction is a concept in OOP where we hide the complex implementation details and show only the necessary features of an object.
-It helps to reduce programming complexity by focusing only on the essential parts.
+✅ 1. Abstraction – Interview Answer in Python:
+Answer:
+Abstraction in Python means hiding the complex implementation and showing only the important features to the user.
+This helps reduce complexity and increases security.
+
+In Python, we achieve abstraction using abstract classes and abstract methods, using the abc module.
 
 Example:
-For example, when we use a mobile phone, we just press the call button. We don’t know the internal details of how the call is connected — this is abstraction.
+from abc import ABC, abstractmethod
 
-✅ 2. Data Binding
-Interview Answer:
-Data Binding is the process of connecting the user interface (UI) with the business logic (data) of an application.
-So, if the data changes in the backend (logic), the UI automatically updates to reflect that change.
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+d = Dog()
+d.sound()  # Output: Dog barks
+
+✅ 2. Data Binding – Interview Answer in Python:
+Answer:
+Data Binding means connecting the data (backend logic) with the UI so that when the data changes, the UI automatically updates.
+While Python does not have built-in UI data binding like Android, we can implement it using frameworks like Tkinter, PyQt, or Kivy.
+
+Simple Example using logic:
+
+class Person:
+    def __init__(self):
+        self._name = "Abhishek"
+
+    def set_name(self, name):
+        self._name = name
+        print(f"UI Updated: Name is now {self._name}")
+
+p = Person()
+p.set_name("Rahul")  # Output: UI Updated: Name is now Rahul
+👉 This shows how data (name) is connected to an output (like UI).
+
+✅ 3. Polymorphism – Interview Answer in Python:
+Answer:
+Polymorphism means "many forms." It allows the same function or object to behave differently based on the situation.
+Python supports both compile-time and runtime polymorphism.
+
+🔸 Compile-time Polymorphism (Method Overloading in Python style):
+Python doesn’t support method overloading like Java, but we can do it using default arguments or *args.
 
 Example:
-In JavaFX or Android, if we bind a text field to a variable and change the variable’s value, the text field will automatically show the updated value.
+class Example:
+    def show(self, *args):
+        for item in args:
+            print(item)
 
-✅ 3. Polymorphism
-Interview Answer:
-Polymorphism means "many forms." It allows one function or object to behave differently in different situations.
+obj = Example()
+obj.show(10)          # Output: 10
+obj.show("Hello", 5)  # Output: Hello 5
 
-There are two types of polymorphism:
+🔸 Runtime Polymorphism (Method Overriding):
+In Python, this is done using inheritance and overriding methods in the subclass.
+class Animal:
+    def sound(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+a = Animal()
+d = Dog()
+
+a.sound()  # Output: Animal sound
+d.sound()  # Output: Dog barks
+
+# Runtime polymorphism using reference
+def make_sound(animal):
+    animal.sound()
+
+make_sound(Dog())  # Output: Dog barks
+
+✅ Final Summary (for combined answer in interview):
+"Abstraction hides internal details and shows only essential features,
+Data Binding connects logic with UI so that data changes reflect automatically,
+and Polymorphism allows one function or object to behave in multiple ways.
+These are the important features of Object-Oriented Programming in Python."**
 
 
-🔸 Compile-time Polymorphism (Static Binding):
-This type is resolved during compilation.
-Example: Method overloading – when we have multiple methods with the same name but different parameters in the same class.
-class Example {
-    void show(int a) { ... }
-    void show(String b) { ... }
-}
 
-
-🔸 Runtime Polymorphism (Dynamic Binding):
-This type is resolved at runtime.
-Example: Method overriding – when a subclass provides a specific implementation of a method that is already defined in the parent class.
-
-
-
-
-class Animal {
-    void sound() { System.out.println("Animal sound"); }
-}
-class Dog extends Animal {
-    void sound() { System.out.println("Dog barks"); }
-}
-
-
-If we call sound() using the Animal reference pointing to a Dog object, the Dog’s version will run — this is runtime polymorphism.
-
-✅ Final Summary (if interviewer asks to explain all together):
-Abstraction hides complexity, data binding connects data with UI, and polymorphism allows one interface to work in different ways. These are key principles of object-oriented programming.
-
+Example:
