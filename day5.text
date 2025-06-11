@@ -1,0 +1,208 @@
+✅ 1. Virtual Function (Runtime Polymorphism in Python)
+🔹 C++: Uses virtual keyword
+🔹 Python: All methods are virtual by default
+🔸 Python Code:
+class Base:
+    def print(self):
+        print("print base class")
+    
+    def show(self):
+        print("show base class")
+
+class Derived(Base):
+    def print(self):
+        print("print derived class")
+
+    def show(self):
+        print("show derived class")
+
+# Runtime Polymorphism
+obj = Derived()
+base_ref = obj  # Base reference to Derived object
+
+base_ref.print()  # Calls Derived's print()
+base_ref.show()   # Calls Base's show()
+
+🗣️ Interview Answer:
+In Python, we don't use a virtual keyword. All methods are virtual by default.
+This means if a base class reference points to a derived object, the derived class method will run if it’s overridden. This gives us runtime polymorphism, just like virtual functions in C++.
+
+
+
+✅ 2. Pure Virtual Function & Abstract Classes
+🔹 C++: virtual void func() = 0;
+🔹 Python: Use abc module and @abstractmethod
+🔸 Python Code:
+from abc import ABC, abstractmethod
+
+class Base(ABC):
+    @abstractmethod
+    def show(self):
+        pass  # No implementation (pure virtual)
+
+class Derived(Base):
+    def show(self):
+        print("You can see me!")
+
+# Main
+obj = Derived()
+obj.show()
+
+🗣️ Interview Answer:
+Python supports abstract classes using the abc module.
+A method is made abstract using @abstractmethod, just like a pure virtual function in C++.
+An abstract class cannot be instantiated directly. It only works as a blueprint for derived classes.
+
+✅ 3. Abstract Class Example – Shape Drawing
+🔸 Python Code:
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+
+class Rectangle(Shape):
+    def draw(self):
+        print("Rectangle")
+
+class Square(Shape):
+    def draw(self):
+        print("Square")
+
+# Main
+r = Rectangle()
+s = Square()
+r.draw()
+s.draw()
+
+🗣️ Interview Answer:
+In Python, abstract classes are used when we want child classes to implement specific methods.
+In this example, Shape is abstract, and both Rectangle and Square override the draw() method.
+
+
+✅ 4. Namespaces in Python
+🔹 C++: Uses namespace
+🔹 Python: Uses modules, classes, and functions to organize code.
+🔸 Python Equivalent Code:
+# user-defined namespace using module style
+class Add:
+    a = 5
+    b = 5
+
+    @staticmethod
+    def add():
+        return Add.a + Add.b
+
+# Main
+result = Add.add()
+print(result)  # Output: 10
+
+🗣️ Interview Answer:
+Python doesn’t have namespace keyword like C++.
+But we can create logical code separation using classes, modules (Python files), and packages (folders).
+This helps avoid name conflicts — similar to namespaces in C++.
+
+✅ 5. Access Specifiers
+🔹 C++: private, public, protected
+🔹 Python: Uses naming conventions
+| C++         | Python Equivalent            | Meaning                             |
+| ----------- | ---------------------------- | ----------------------------------- |
+| `public`    | `normal_name`                | Can be accessed from anywhere       |
+| `private`   | `__name` (double underscore) | Cannot be accessed directly outside |
+| `protected` | `_name` (single underscore)  | Can be accessed in derived classes  |
+
+
+class MyClass:
+    def __init__(self):
+        self.public = "I am public"
+        self._protected = "I am protected"
+        self.__private = "I am private"
+
+obj = MyClass()
+print(obj.public)         # ✅ allowed
+print(obj._protected)     # ⚠️ allowed, but not recommended
+print(obj._MyClass__private)  # ✅ allowed using name mangling
+
+
+🗣️ Interview Answer:
+Python does not strictly enforce access control like C++.
+But we use naming conventions:
+
+__private for private
+
+_protected for protected
+
+No underscore for public
+These are just conventions, not strict rules.
+
+✅ 6. Function and Operator Overloading
+🔹 C++: Supports both
+🔹 Python:
+Function overloading is handled using default args or @singledispatch
+
+Operator overloading is supported using special methods like __add__, __mul__, etc.
+
+🔸 Function Overloading in Python:
+python
+Copy
+Edit
+def greet(name=None):
+    if name:
+        print(f"Hello, {name}")
+    else:
+        print("Hello")
+
+greet()           # Hello
+greet("Abhishek") # Hello, Abhishek
+
+🔸 Operator Overloading in Python:
+python
+Copy
+Edit
+class Number:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return self.value + other.value
+
+a = Number(5)
+b = Number(10)
+print(a + b)  # Output: 15
+🗣️ Interview Answer:
+Python supports operator overloading using special methods like __add__, __sub__.
+Function overloading isn't directly supported but can be done using default arguments or decorators.
+
+✅ 7. Overloading vs Overriding
+| Feature        | Overloading                          | Overriding                        |
+| -------------- | ------------------------------------ | --------------------------------- |
+| Concept        | Same function name, different params | Same function name in child class |
+| Binding Time   | Compile-time (static)                | Run-time (dynamic)                |
+| Python Support | Default args or decorators           | Yes, by method overriding         |
+
+
+
+🗣️ Interview Line:
+Overloading is static binding, done with different parameters.
+Overriding is dynamic binding, done when child class redefines the base class method.
+
+✅ 8. Bonus: delete vs delete[] in C++ → Python
+🔹 Python Equivalent:
+Python uses automatic garbage collection, so we don’t use delete manually.
+Python's memory is managed by the interpreter.
+
+✅ Final Interview Tip:
+If the interviewer asks you to compare Python with C++, confidently say:
+
+C++ is strict with access and memory, while Python is flexible and dynamic.
+Python supports object-oriented programming, but without the need for keywords like friend, virtual, namespace, or manual memory management.
+
+
+
+
+
+
+
+
+
