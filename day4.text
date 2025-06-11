@@ -1,0 +1,93 @@
+In Python, there is no friend keyword like C++.
+But we can still access private members by using name mangling (using _ClassName__memberName).
+
+
+class A:
+    def __init__(self):
+        self.__a = 2
+        self.__b = 4
+
+# Friend-like function (non-member) accessing private data
+def mul(obj):
+    return obj._A__a * obj._A__b  # Accessing private members using name mangling
+
+# Main function
+obj = A()
+res = mul(obj)
+print(res)
+
+output:8
+
+
+🧠 Interview Explanation (Simple Words):
+In C++, friend function is a non-member function that can access private members of a class. Python doesn't have a friend keyword, but we can still access private variables using name mangling.
+In this example, the mul() function is not a class member but still accesses private members __a and __b using obj._A__a.
+So, it's similar to a friend function in C++.
+
+✅ 1. Aggregation in Python (HAS-A relationship)
+🔸 C++ Concept:
+Aggregation means one class has a reference (or object) of another class. This shows a "HAS-A" relationship.
+
+class Engine:
+    def __init__(self, power):
+        self.power = power
+
+class Car:
+    def __init__(self, engine):
+        self.engine = engine  # Aggregation (Car HAS-A Engine)
+
+    def show_power(self):
+        print(f"Engine power is {self.engine.power} HP")
+
+# Creating an Engine object
+e = Engine(150)
+# Passing Engine to Car (Aggregation)
+c = Car(e)
+c.show_power()
+
+
+🗣️ Interview Answer (Aggregation):
+Aggregation in Python is a "HAS-A" relationship between classes.
+It means one class contains an object of another class.
+For example, a Car has an Engine.
+In Python, this is done by passing the object of one class into the constructor or method of another class.
+
+
+
+✅ 2. Virtual Function Concept in Python (Polymorphism using Method Overriding)
+🔸 C++ Concept:
+In C++, a virtual function allows runtime polymorphism. If a base class pointer points to a derived class object, the derived class version is called (not base version), thanks to the virtual keyword.
+
+🔸 Python Equivalent:
+Python doesn't need virtual keyword because it supports runtime polymorphism by default.
+
+🔸 Python Code Example:
+
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+# Runtime Polymorphism
+def make_sound(animal):
+    animal.speak()
+
+a = Animal()
+d = Dog()
+
+make_sound(a)  # Output: Animal speaks
+make_sound(d)  # Output: Dog barks (Derived class method called)
+
+🗣️ Interview Answer (Virtual Function):
+In C++, we use the virtual keyword to achieve runtime polymorphism.
+But in Python, all methods are virtual by default.
+So, when a base class method is overridden in a derived class, Python automatically calls the derived version at runtime, depending on the object type — just like virtual functions in C++.
+
+
+✍️ Bonus Lines (If interviewer asks for difference):
+Python doesn't need the virtual keyword because its method resolution is always dynamic.
+So, it automatically behaves like C++ virtual functions using method overriding.
+
