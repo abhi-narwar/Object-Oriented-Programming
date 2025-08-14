@@ -1,0 +1,13 @@
+3. Core CS Subjects (Interview Theory)
+
+OOPS → Concepts + examples
+
+DBMS → Joins, indexes, normalization
+
+OS → Process, threads, scheduling basics
+
+CN → TCP/UDP, HTTP basics
+
+Notes banao, short & crisp (interview quick recall)
+
+⏳ Time: 1 month (parallel with DSA)
